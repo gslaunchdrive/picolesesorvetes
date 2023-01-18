@@ -36,8 +36,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Prepare
         run: |
-          mkdir fb-${{ env.launch }}
-          mkdir gg-${{ env.launch }}
+          mkdir fb-${{ env.launch }} --mode=777
+          mkdir gg-${{ env.launch }} --mode=777
           cp -Ri captura/* fb-${{ env.launch }}/
           cp -Ri captura/* /
           cp -Ri captura/* gg-${{ env.launch }}/
