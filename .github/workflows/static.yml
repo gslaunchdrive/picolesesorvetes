@@ -34,14 +34,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Prepare
-        run: |
-          mkdir fb-${{ env.launch }} --mode=777
-          mkdir gg-${{ env.launch }} --mode=777
-          cp -Ri captura/* fb-${{ env.launch }}/
-          cp -Ri captura/* /
-          cp -Ri captura/* gg-${{ env.launch }}/
-
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
