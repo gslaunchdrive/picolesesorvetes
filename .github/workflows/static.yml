@@ -26,18 +26,18 @@ jobs:
     environment:
       - name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
-        version: LAUNCH_VERSION
+        launch: LAUNCH_VERSION
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Prepare
         run: |
-          mkdir fb-${{ env.version }}
-          mkdir gg-${{ env.version }}
-          cp -Ri captura/* fb-${{ env.version }}/
+          mkdir fb-${{ env.launch }}
+          mkdir gg-${{ env.launch }}
+          cp -Ri captura/* fb-${{ env.launch }}/
           cp -Ri captura/* /
-          cp -Ri captura/* gg-${{ env.version }}/
+          cp -Ri captura/* gg-${{ env.launch }}/
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
