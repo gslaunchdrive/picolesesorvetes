@@ -24,19 +24,20 @@ jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      - name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+        version: LAUNCH_VERSION
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Prepare
         run: |
-          mkdir fb-${{ env.LAUNCH_VERSION }}
-          mkdir gg-${{ env.LAUNCH_VERSION }}
-          cp -Ri captura/* fb-${{ env.LAUNCH_VERSION }}/
+          mkdir fb-${{ env.version }}
+          mkdir gg-${{ env.version }}
+          cp -Ri captura/* fb-${{ env.version }}/
           cp -Ri captura/* /
-          cp -Ri captura/* gg-${{ env.LAUNCH_VERSION }}/
+          cp -Ri captura/* gg-${{ env.version }}/
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
