@@ -9,6 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  launch: fev23
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -26,17 +29,19 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Prepare
         run: |
-          mkdir fb-${{ env.LAUNCH_VERSION }}
-          mkdir gg-${{ env.LAUNCH_VERSION }}
-          cp -Ri captura/* fb-${{ env.LAUNCH_VERSION }}/
+          mkdir fb-${{ env.launch }}
+          mkdir gg-${{ env.launch }}
+          cp -Ri captura/* fb-${{ env.launch }}/
           cp -Ri captura/* /
-          cp -Ri captura/* gg-${{ env.LAUNCH_VERSION }}/
+          cp -Ri captura/* gg-${{ env.launch }}/
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
