@@ -5,12 +5,11 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+  pull_request:
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-env:
-  launch: fev23
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -34,17 +33,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Prepare
-        run: |
-          chmod -c -R +rX "$INPUT_PATH" | while read line; do
-            echo "::warning title=Invalid file permissions automatically fixed::$line"
-          done
-          mkdir fb-${{ env.launch }} --mode=777
-          mkdir gg-${{ env.launch }} --mode=777
-          cp -Ri captura/* fb-${{ env.launch }}/
-          cp -Ri captura/* /
-          cp -Ri captura/* gg-${{ env.launch }}/
-
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact

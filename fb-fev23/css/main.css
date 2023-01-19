@@ -1,6 +1,6 @@
 #section-1 .parallax {
     padding-top: 100px;
-    padding-bottom: 180px;
+    padding-bottom: 200px;
     overflow: hidden;
     width: 100%;
     background-image: url(../assets/wallpaper.webp);
@@ -13,7 +13,7 @@
 }
 
 #section-1 .bg-form {
-    background: radial-gradient(#3e0009c7, #780101e8);
+    background: radial-gradient(#00053ec7, #010a78e8);
     border-radius: 15px;
     padding: 40px 50px;
 }
@@ -44,13 +44,13 @@
 }
 
 #section-1 .shape-fill{
-    fill:#68013d;
+    fill:#260168;
     transform-origin: center;
     transform: rotateY(0deg);
 }
 
 #section-2 {
-    background: radial-gradient(#2204c3, #83000c);
+    background: radial-gradient(#2204c3, #260168);
 }
 
 #featured-event .feature-icon {
@@ -101,6 +101,8 @@
     }
     #section-1 .bg-form {
         border-radius: 0;
+        background: radial-gradient(#00053ecc, #010a78cc);
+        padding: 40px 40px 80px;
     }
 }
 
