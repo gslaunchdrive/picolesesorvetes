@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     function loadConfigs() {
-        $.get( "https://glcdn.githack.com/ddmlaunch/configs/-/raw/main/omestredosabor/obrigado.json",  function( data ) {
+        $.get( "https://glcdn.githack.com/ddmlaunch/configs/-/raw/omestredosabor/obrigado.json",  function( data ) {
             var config = data[0];
             openCart = config.openCart;
             $('#open-cart').attr("href", config.openCart);
